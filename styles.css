@@ -1,0 +1,133 @@
+:root {
+  color-scheme: dark;
+  --bg: #10131a;
+  --panel: #1b2030;
+  --panel-border: #2a3248;
+  --text: #e6edf7;
+  --muted: #9ca8bf;
+  --accent: #66a8ff;
+  --accent-2: #2f6fdd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Noto Sans KR", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at top left, #151c2d, var(--bg));
+  color: var(--text);
+}
+
+.layout {
+  min-height: 100vh;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) 1fr;
+  gap: 20px;
+}
+
+.panel {
+  background: color-mix(in srgb, var(--panel), black 4%);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+input,
+button {
+  border-radius: 10px;
+  border: 1px solid #3c4967;
+  background: #121826;
+  color: var(--text);
+  font: inherit;
+}
+
+input {
+  padding: 10px;
+}
+
+button {
+  padding: 10px 12px;
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border: none;
+  font-weight: 600;
+}
+
+button.secondary {
+  background: #2b344a;
+  border: 1px solid #455577;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+}
+
+.pill {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #42527b;
+  background: #111725;
+  font-size: 0.9rem;
+}
+
+.canvas-panel {
+  display: grid;
+  place-items: center;
+}
+
+canvas {
+  width: min(100%, 1024px);
+  max-height: calc(100vh - 70px);
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid #2f3b5b;
+  image-rendering: pixelated;
+  background: repeating-conic-gradient(#151924 0% 25%, #111520 0% 50%) 50% / 20px 20px;
+}
+
+.muted {
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.small {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.status {
+  margin-top: 12px;
+  color: #bfd1ff;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas-panel {
+    min-height: 52vh;
+  }
+}
